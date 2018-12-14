@@ -1,23 +1,28 @@
-<div class="container mt-5">
-  <div *ngIf="!registerMode" style="text-align: center">
-    <h1>Find your match</h1>
-    <p class="lead">
-      Come on in to view your matches... All you need to do is sign-up!
-    </p>
-    <div class="text-center">
-      <button class="btn btn-primary btn-lg mr-2" (click)="registerToggle()">
-        <i class="fa fa-plus"></i> Register
-      </button>
-      <button class="btn btn-info btn-lg">Learn more</button>
+<div class="container mt-3" style="border: 0pt solid #00cc00;">
+  <div class="row">
+    <div class="col-md-2" style="border: 0pt solid #ff0000;">
+      <img width="150" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==" />
     </div>
-  </div>
+    <div class="col-md-10" style="border: 0pt solid #0000ff;">
+      <div *ngIf="!registerMode" style="text-align: center">
+        <h1>Find your match</h1>
+        <p class="lead">
+          Come on in to view your matches... All you need to do is sign-up!
+        </p>
+        <div class="text-center">
+          <button class="btn btn-primary btn-lg mr-2" (click)="registerToggle()">
+            <i class="fa fa-user-plus"></i> Register
+          </button>
+          <button class="btn btn-info btn-lg"><i class="fa fa-graduation-cap"></i> Learn more</button>
+        </div>
+      </div>
 
-  <div *ngIf="registerMode" class="container">
-    <div class="row justify-content-center">
-      <div class="col-4">
-        <app-register
-          (cancelRegister)="cancelRegisterMode($event)"
-        ></app-register>
+      <div *ngIf="registerMode" class="container">
+        <div class="row justify-content-center">
+          <div class="col-4">
+            <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+          </div>
+        </div>
       </div>
     </div>
   </div>

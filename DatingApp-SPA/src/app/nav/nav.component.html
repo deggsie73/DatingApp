@@ -1,24 +1,19 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
   <div class="container">
-    <img
-      width="32"
-      alt="Angular Logo"
-      src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
-      class="mr-3"
-    />
-    <a class="navbar-brand" [routerLink]="['/home']">
-      <i class="fa fa-users"></i>&nbsp;Dating App</a
-    >
+    <img width="32" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg=="
+      class="mr-3" />
+    <a class="navbar-brand" title="Access the home page" [routerLink]="['/home']">
+      <i class="fa fa-users"></i>&nbsp;Dating App</a>
 
     <ul *ngIf="loggedIn()" class="navbar-nav mr-auto">
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/members']">Matches</a>
+        <a class="nav-link" title="View your matched dates" [routerLink]="['/members']">Matches</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/lists']">Lists</a>
+        <a class="nav-link" title="Browse potential dates" [routerLink]="['/lists']">Lists</a>
       </li>
       <li class="nav-item" routerLinkActive="active">
-        <a class="nav-link" [routerLink]="['/messages']">Messages</a>
+        <a class="nav-link" title="View your messages" [routerLink]="['/messages']">Messages</a>
       </li>
     </ul>
     <div *ngIf="loggedIn()" class="dropdown" dropdown>
@@ -27,43 +22,29 @@
       </a>
 
       <div class="dropdown-menu mt-3" *dropdownMenu>
-        <a class="dropdown-item" href="#"
-          ><i class="fa fa-user"></i> Edit profile</a
-        >
+        <a class="dropdown-item alert-info" title="Edit your personal profile" href="#"><i class="fa fa-user"></i> Edit
+          profile</a>
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" (click)="logout()"
-          ><i class="fa fa-sign-out"></i> Logout</a
-        >
+        <a class="dropdown-item alert-danger" title="Log out of the dating app" (click)="logout()"><i class="fa fa-sign-out"></i>
+          Logout</a>
       </div>
     </div>
-    <form
-      *ngIf="!loggedIn()"
-      #loginForm="ngForm"
-      class="form-inline my-2 my-lg-0"
-      (ngSubmit)="login()"
-    >
-      <input
-        class="form-control mr-sm-2"
-        type="text"
-        name="username"
-        placeholder="Username"
-        required
-        [(ngModel)]="model.username"
-      />
-      <input
-        class="form-control mr-sm-2"
-        type="password"
-        name="password"
-        placeholder="Password"
-        required
-        [(ngModel)]="model.password"
-      />
-      <button
-        [disabled]="!loginForm.valid"
-        class="btn btn-success my-2 my-sm-0"
-        type="submit"
-      >
-        Login
+    <form *ngIf="!loggedIn()" #loginForm="ngForm" class="form-inline my-2 my-lg-0" (ngSubmit)="login()">
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text fa fa-user" id="basic-addon1"></span>
+        </div>
+        <input class="form-control mr-sm-2" type="text" name="username" placeholder="Username" required [(ngModel)]="model.username" />
+      </div>
+
+      <div class="input-group mb-2">
+        <div class="input-group-prepend">
+          <span class="input-group-text fa fa-unlock-alt" id="basic-addon1"></span>
+        </div>
+        <input class="form-control mr-sm-2" type="password" name="password" placeholder="Password" required [(ngModel)]="model.password" />
+      </div>
+      <button [disabled]="!loginForm.valid" class="btn btn-success btn-sm mb-2" type="submit">
+        <i class="fa fa-bed"></i> Login
       </button>
     </form>
   </div>
