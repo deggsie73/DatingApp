@@ -22,7 +22,8 @@
       </a>
 
       <div class="dropdown-menu mt-3" *dropdownMenu>
-        <a class="dropdown-item alert-info" title="Edit your personal profile" href="#"><i class="fa fa-user"></i> Edit
+        <a class="dropdown-item alert-info" title="Edit your personal profile" [routerLink]="['/member/edit']"><i class="fa fa-user"></i>
+          Edit
           profile</a>
         <div class="dropdown-divider"></div>
         <a class="dropdown-item alert-danger" title="Log out of the dating app" (click)="logout()"><i class="fa fa-sign-out"></i>
