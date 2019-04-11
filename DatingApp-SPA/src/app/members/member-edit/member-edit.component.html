@@ -12,7 +12,7 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top img-thumbnail" src="{{photoUrl}}" alt="{{user.knownAs}}">
+        <img class="card-img-top img-thumbnail" src="{{photoUrl || '../../../assets/user.png'}}" alt="{{user.knownAs || user.username}}">
         <div class="card-body">
           <div>
             <strong>Location:</strong>
@@ -45,7 +45,7 @@
               <h4>Description</h4>
               <textarea name="introduction" rows="6" class="form-control" [(ngModel)]="user.introduction"></textarea>
               <h4>Looking for</h4>
-              <textarea name="lookingFor" rows="6" class="form-control" [(ngModel)]="user.lookingFor"></textarea>
+              <input type="text" class="form-control" name="lookingFor" [(ngModel)]="user.lookingFor">
               <h4>Interests</h4>
               <textarea name="interests" rows="6" class="form-control" [(ngModel)]="user.interests"></textarea>
               <h4>Location details:</h4>

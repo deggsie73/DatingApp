@@ -5,7 +5,7 @@
   <div class="row">
     <div class="col-sm-4">
       <div class="card">
-        <img class="card-img-top img-thumbnail" src="{{user?.photoUrl}}" alt="{{user.knownAs}}">
+        <img class="card-img-top img-thumbnail" src="{{user?.photoUrl || '../../../assets/user.png'}}" alt="{{user.knownAs}}">
         <div class="card-body">
           <div>
             <strong>Location:</strong>
@@ -37,13 +37,12 @@
         <tabset class="member-tabset">
           <tab heading="About {{user?.knownAs}}">
             <h4>Description</h4>
-            <p>{{user.introduction}}</p>
-            <h4>Looking for</h4>
-            <p>{{user.lookingFor}}</p>
+            <p>{{user.introduction || "[No description set]"}}</p>
+            <h4>Looking for&nbsp;<span class="fa fa-{{user.lookingFor || 'user'}}" style="font-size: 1.5em;"></span></h4>
           </tab>
           <tab heading="Interests">
             <h4>Interests</h4>
-            <p>{{user.interests}}</p>
+            <p>{{user.interests || "[No interests set]"}}</p>
           </tab>
           <tab heading="Photos">
             <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
