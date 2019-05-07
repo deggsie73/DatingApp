@@ -4,7 +4,7 @@
     <ul class="list-inline member-icons animate text-center">
       <li class="list-inline-item"><button class="btn btn-primary" title="View {{user.knownAs || user.username}}'s profile" [routerLink]="['/members/', user.id]"><i
             class="fa fa-user"></i></button></li>
-      <li class="list-inline-item"><button class="btn btn-primary" title="Add {{user.knownAs || user.username}} to your like-list"><i
+      <li class="list-inline-item"><button class="btn btn-primary" title="Add {{user.knownAs || user.username}} to your like-list"(click)="sendLike(user.id)"><i
             class="fa fa-heart"></i></button></li>
       <li class="list-inline-item"><button class="btn btn-primary" title="Send a message to {{user.knownAs || user.username}}"><i class="fa fa-envelope"></i></button></li>
     </ul>
